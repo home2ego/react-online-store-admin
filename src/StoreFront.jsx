@@ -31,6 +31,7 @@ export default function StoreFront() {
 
     setName('');
     setDescription('');
+    setValidation('');
   }
 
   function handleDeleteClick(deleteId) {
