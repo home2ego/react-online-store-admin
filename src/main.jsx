@@ -1,8 +1,9 @@
 import { createRoot } from 'react-dom/client';
+import StoreFront from './StoreFront';
 import './index.css';
 
 function App() {
-  return <h1>Hello World</h1>;
+  return <StoreFront />;
 }
 
 createRoot(document.getElementById('root')).render(<App />);
