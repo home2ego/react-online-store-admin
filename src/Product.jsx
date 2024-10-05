@@ -1,9 +1,7 @@
 import { useState } from 'react';
 
-export default function Product(props) {
+export default function Product({ details }) {
   const [count, setCount] = useState(0);
-
-  const { details } = props;
 
   function handleIncrementClick() {
     setCount(count + 1);
