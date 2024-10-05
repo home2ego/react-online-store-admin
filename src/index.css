@@ -11,6 +11,10 @@
   --dark: #222;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 15px;
 }
