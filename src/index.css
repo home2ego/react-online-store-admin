@@ -145,3 +145,23 @@ form {
   opacity: 0.5;
   cursor: default;
 }
+
+.btn-reload {
+  all: unset;
+  box-sizing: border-box;
+  outline: revert;
+
+  font-weight: 600;
+  padding: 15px;
+  border: 1.5px solid #000;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: #fff;
+
+  transition: scale 0.3s ease;
+}
+
+.btn-reload:active {
+  scale: 0.95;
+}
