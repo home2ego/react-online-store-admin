@@ -14,6 +14,16 @@ export default function StoreFront() {
   const [validation, setValidation] = useState('');
 
   useEffect(() => {
+    if (products.length === 0) {
+      document.title = 'No products';
+    } else if (products.length === 1) {
+      document.title = '1 product';
+    } else {
+      document.title = `${products.length} products`;
+    }
+  }, [products]);
+
+  useEffect(() => {
     localStorage.setItem('products', JSON.stringify(products));
   }, [products]);
 
