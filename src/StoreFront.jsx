@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import AddProductForm from './AddProductForm';
 import ProductsList from './ProductsList';
+import useFetch from './useFetch.jsx';
 
 export default function StoreFront() {
   const [products, setProducts] = useState(() => {
@@ -12,6 +13,7 @@ export default function StoreFront() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [validation, setValidation] = useState('');
+  const { post } = useFetch('https://api.learnjavascript.online/demo/react/admin/');
 
   useEffect(() => {
     if (products.length === 0) {
@@ -38,17 +40,25 @@ export default function StoreFront() {
       setValidation('Please enter a description');
       return;
     }
-    setProducts([
-      ...products,
-      {
-        id: products.length + 1,
-        name: name,
-        description: description,
-      },
-    ]);
-    setName('');
-    setDescription('');
-    setValidation('');
+
+    post('products', { name, description })
+      .then((data) => {
+        console.log(data);
+        if (data) {
+          setProducts([
+            ...products,
+            {
+              id: products.length + 1,
+              name: name,
+              description: description,
+            },
+          ]);
+          setName('');
+          setDescription('');
+          setValidation('');
+        }
+      })
+      .catch((error) => console.error(error));
   }
 
   function handleNameChange(e) {
